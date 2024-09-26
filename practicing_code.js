@@ -88,7 +88,7 @@ for (let x of language){
     text += x
 }
 
-//try and catch
+//try and catch aka error handling
 try {
     if(x.trim() == "") throw "empty"; //attempts to run this line
     if(isNaN(x)) throw "not a number"; // if the input was a letter or something other than a number
@@ -98,6 +98,52 @@ try {
 }catch(err){
     message.innerHTML = "Input is " + err; // if issues are found they are caught here, usually through a display method
 }
+
+// call back
+function first() {
+    myDisplayer("hello");
+}
+function second() {
+    myDisplayer("goodbye");
+}
+second();
+first();
+
+// async
+function myDisplayer(something) {
+    document.getElementById("demo").innerHTML = something;
+  }
+  
+  function myCalculator(num1, num2, myCallback) {
+    let sum = num1 + num2;
+    myCallback(sum);
+  }
+  
+  myCalculator(5, 5, myDisplayer);
+
+// waits for intervals
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
+
+//promise
+let myPromise = new Promise(function(myResolve, myReject) {
+    // "Producing Code" (May take some time)
+      myResolve(); // when successful
+      myReject();  // when error
+    });
+    
+    // "Consuming Code" (Must wait for a fulfilled Promise)
+    myPromise.then(
+      function(value) { /* code if successful */ },
+      function(error) { /* code if some error */ }
+    );
 
 // switch, case
 
