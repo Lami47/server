@@ -4,8 +4,8 @@ const url = require("url");
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const DATA_FILE = "items.json";
-const readData = fs.readFileSync(DATA_FILE);
+let data_file = "items.json";
+const readData = fs.readFileSync(data_file);
 
 // In-memory data store
 let items = [];
@@ -23,7 +23,7 @@ if (parsedUrl.pathname === "/" && req.method === "GET") {
       res.end("Server error");
       return;
     }
-    res.writeHead(200, { "Content-Type": "text/json" });
+    res.writeHead(200, { "Content-Type": "application/json" });
     res.end(data);
   });
   return;
@@ -48,7 +48,7 @@ if (parsedUrl.pathname === "/items") {
         const newItem = JSON.parse(body);
         newItem.id = nextId++;
         items.push(newItem);
-        fs.writeFileSync(DATA_FILE, JSON.stringify(readData, null, 2));
+        fs.writeFileSync(data_file, JSON.stringify(readData, null, 2));
         res.writeHead(201, { "Content-Type": "application/json" });
         res.end(JSON.stringify(newItem));
       });
