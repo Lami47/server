@@ -1,2 +1,4 @@
-let x = 1.4
-x
+let a = 12;
+let b = 3;
+let c = a % b;
+console.log(c)
