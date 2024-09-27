@@ -48,9 +48,9 @@ if (parsedUrl.pathname === "/items") {
         const newItem = JSON.parse(body);
         newItem.id = nextId++;
         items.push(newItem);
-        fs.writeFileSync(data_file, JSON.stringify(readData, null, 2));
-        res.writeHead(201, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(newItem));
+        fs.writeFileSync("items.json", JSON.stringify(newItem, null, 2)); // write to items.json the content from NewItem and 
+        res.writeHead(201, { "Content-Type": "application/json" }); //converts the data to json
+        res.end(JSON.stringify(newItem)); //send the newitem as a result
       });
     break; 
   default:
@@ -70,8 +70,7 @@ if (parsedUrl.pathname === "/items") {
         res.writeHead(404, { "Content-Type": "text/plain" });
         res.end("Item not found - GetById");
       }
-      break;
- 
+      break; 
     case "PUT":
       // UPDATE an existing item by ID
       let updateBody = "";
@@ -89,8 +88,7 @@ if (parsedUrl.pathname === "/items") {
           res.end("Item not found - UpdateById");
         }
       });
-      break;
- 
+      break; 
     case "DELETE":
       // DELETE an item by ID
       if (itemIndex !== -1) {
