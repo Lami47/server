@@ -33,7 +33,7 @@ if (parsedUrl.pathname === "/" && req.method === "GET") {
 if (parsedUrl.pathname === "/items") {
   switch (req.method) {
     case "GET":
-      // Read all items
+      // READ all items
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(items));
       break;

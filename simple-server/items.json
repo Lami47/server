@@ -1,13 +1,10 @@
 {
   "names": [
     {
-      "name": "Jack"
-    },
-    {
-      "name": "Simon"
-    },
-    {
-      "name": "Jill"
+      "id": 2,
+      "first_name": "John",
+      "last_name": "Doe",
+      "age": "20"
     }
   ],
   "id": 3
