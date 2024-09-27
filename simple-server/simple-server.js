@@ -4,9 +4,6 @@ const url = require("url");
 const hostname = '127.0.0.1';
 const port = 3000;
 
-let data_file = "items.json";
-const readData = fs.readFileSync(data_file);
-
 // In-memory data store
 let items = [];
 let nextId = 1; // To generate unique IDs for items starting at 1
@@ -16,7 +13,7 @@ const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
  
 // Serve item.json for the root URL
-if (parsedUrl.pathname === "/" && req.method === "GET") {
+if (parsedUrl.pathname === "/items" && req.method === "GET") {
   fs.readFile("items.json", (err, data) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/plain" });
@@ -48,9 +45,9 @@ if (parsedUrl.pathname === "/items") {
         const newItem = JSON.parse(body);
         newItem.id = nextId++;
         items.push(newItem);
-        fs.writeFileSync("items.json", JSON.stringify(newItem, null, 2)); // write to items.json the content from NewItem and 
-        res.writeHead(201, { "Content-Type": "application/json" }); //converts the data to json
-        res.end(JSON.stringify(newItem)); //send the newitem as a result
+        fs.writeFileSync("items.json", JSON.stringify(items, null, 2)); // write to items.json the content from NewItem and 
+        res.writeHead(201, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(newItem)); 
       });
     break; 
   default:
@@ -113,5 +110,5 @@ if (parsedUrl.pathname === "/items") {
  
 // Start the server
 server.listen(port, hostname, () => {
-  console.log(`Server is running on http://${hostname}:${port}/`);
+  console.log(`Server is running on http://${hostname}:${port}/items`);
 });
