@@ -6,7 +6,7 @@ if (b === 0) { //condition
   } else{
     //for what we cant always predict and can be very vast
     //  block of code to be executed if the condition is false
-    console.log("Result: ${Result}")
+    console.log(`Result: ${result}`)
   } else if{
     // for when we can predict all outcomes and we can list them out in else if statements
   };
@@ -97,6 +97,8 @@ try {
     if(x > 10) throw "too high!"; // if the number is greater than 10 it is too high
 }catch(err){
     message.innerHTML = "Input is " + err; // if issues are found they are caught here, usually through a display method
+} finally{
+  console.log("Division operation attempted.");
 }
 
 // call back
