@@ -9,8 +9,8 @@ let items = [];
 let nextId = 1; // To generate unique IDs for items starting at 1
  
 // Create the server
-const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url, true);
+const server = http.createServer((req, res) => { //
+  const parsedUrl = url.parse(req.url, true); //
  
 // Serve item.json for the root URL
 if (parsedUrl.pathname === "/items" && req.method === "GET") {
