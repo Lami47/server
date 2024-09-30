@@ -4,20 +4,14 @@ const url = require("url");
 const hostname = '127.0.0.1';
 const port = 3000;
 
-// In-memory data store
-// function readFileContent(){
-//   fs.readFile('simple-server\items.json', 'utf8', (err, data) => {
-//     if (err) {
-//       console.error('Error reading file:', err);
-//       return;
-//     }
-//     const fileContent = data;
-//     console.log('File Content:', fileContent);
-//   });
-// };
-// let items = readFileContent;
-let items = [];
-let nextId = 1; // To generate unique IDs for items starting at 1
+
+let readData = fs.readFileSync('items.json')
+let items = JSON.parse(readData);
+let nextId = 1;
+
+// let numbers = readData;
+// const totalWithID = numbers.filter(obj => obj.id !== undefined).length;
+// let nextId = maxId; // To generate unique IDs for items starting at 1
 
 // Create the server
 const server = http.createServer((req, res) => { //
@@ -53,7 +47,7 @@ if (parsedUrl.pathname === "/items") {
       });
       req.on("end", () => {
         const newItem = JSON.parse(body);
-        newItem.id = nextId++;
+        newItem.id = nextId++;  // newItem.id =  item.index.max() + 1
         items.push(newItem);
         fs.writeFileSync("items.json", JSON.stringify(items, null, 2)); // write to items.json the content from NewItem and 
         res.writeHead(201, { "Content-Type": "application/json" });
