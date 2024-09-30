@@ -5,9 +5,20 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 // In-memory data store
+// function readFileContent(){
+//   fs.readFile('simple-server\items.json', 'utf8', (err, data) => {
+//     if (err) {
+//       console.error('Error reading file:', err);
+//       return;
+//     }
+//     const fileContent = data;
+//     console.log('File Content:', fileContent);
+//   });
+// };
+// let items = readFileContent;
 let items = [];
 let nextId = 1; // To generate unique IDs for items starting at 1
- 
+
 // Create the server
 const server = http.createServer((req, res) => { //
   const parsedUrl = url.parse(req.url, true); //
@@ -33,8 +44,7 @@ if (parsedUrl.pathname === "/items") {
       // READ all items
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(items));
-      break;
- 
+      break; 
     case "POST":
       // CREATE a new item
       let body = "";
