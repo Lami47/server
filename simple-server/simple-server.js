@@ -94,9 +94,16 @@ if (parsedUrl.pathname === "/items") {
     case "DELETE":
       // DELETE an item by ID
       if (itemIndex !== -1) {
-        const deletedItem = items.splice(itemIndex, 1);      
+        const deletedItem = items.splice(itemIndex, 1);    
+      //   const item = () => { 
+      //     if( parseInt(items.id)> parseInt(deletedItem.id)) {
+      //       "qwerty"
+      //   }
+      // }
+      //   console.log(items.id)
+        // console.log(deletedItem[0].id)
         res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(deletedItem[0]));
+        res.end(JSON.stringify(deletedItem));
         fs.writeFileSync('items.json', JSON)
       } else {
         res.writeHead(404, { "Content-Type": "text/plain" });
