@@ -4,20 +4,15 @@ const url = require("url");
 const hostname = '127.0.0.1';
 const port = 3000;
 
-// In-memory data store
-// function readFileContent(){
-//   fs.readFile('simple-server\items.json', 'utf8', (err, data) => {
-//     if (err) {
-//       console.error('Error reading file:', err);
-//       return;
-//     }
-//     const fileContent = data;
-//     console.log('File Content:', fileContent);
-//   });
-// };
-// let items = readFileContent;
-let items = [];
-let nextId = 1; // To generate unique IDs for items starting at 1
+let x = fs.readFileSync('items.json')
+let items = JSON.parse(x);
+
+//find the highest id
+let highestId = items.reduce((max, item) =>{
+  return item.id > max ? item.id : max;
+}, 1); //initial value is 1
+
+let nextId = highestId + 1; // To generate unique IDs for items starting at 1
 
 // Create the server
 const server = http.createServer((req, res) => { //
@@ -99,9 +94,10 @@ if (parsedUrl.pathname === "/items") {
     case "DELETE":
       // DELETE an item by ID
       if (itemIndex !== -1) {
-        const deletedItem = items.splice(itemIndex, 1);
+        const deletedItem = items.splice(itemIndex, 1);      
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify(deletedItem[0]));
+        fs.writeFileSync('items.json', JSON)
       } else {
         res.writeHead(404, { "Content-Type": "text/plain" });
         res.end("Item not found - DeleteById");
