@@ -4,6 +4,7 @@ const url = require("url");
 const hostname = '127.0.0.1';
 const port = 3000;
 
+<<<<<<< HEAD
 
 let readData = fs.readFileSync('items.json')
 let items = JSON.parse(readData);
@@ -12,6 +13,26 @@ let nextId = 1;
 // let numbers = readData;
 // const totalWithID = numbers.filter(obj => obj.id !== undefined).length;
 // let nextId = maxId; // To generate unique IDs for items starting at 1
+=======
+let x = fs.readFileSync('items.json');
+let items = JSON.parse(x);
+
+//find the highest id
+if (Array.isArray(items)) {
+  let highestId = items.reduce((max, item) =>{
+    return item.id > max ? item.id : max; //if item.id is greater than max, item.id is return and vice versa
+  }, 1);
+  let nextId = highestId + 1; // To generate unique IDs for items starting at 1
+} else {
+  console.error('items is not an array:', items);
+}
+
+// let highestId = items.reduce((max, item) =>{
+//   return item.id > max ? item.id : max; //if item.id is greater than max, item.id is return and vice versa
+// }, 1); //initial value is 1
+
+
+>>>>>>> d3ce1abb1394c61d3eed10bc27f52d08a725f3d4
 
 // Create the server
 const server = http.createServer((req, res) => { //
@@ -81,7 +102,8 @@ if (parsedUrl.pathname === "/items") {
       req.on("end", () => {
         if (itemIndex !== -1) {
           const updatedItem = JSON.parse(updateBody);
-          items[itemIndex].name = updatedItem.name;
+          items[itemIndex].first_name = updatedItem.first_name;
+          fs.writeFileSync("items.json", JSON.stringify(items, null, 2));
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify(items[itemIndex]));
         } else {
@@ -95,7 +117,8 @@ if (parsedUrl.pathname === "/items") {
       if (itemIndex !== -1) {
         const deletedItem = items.splice(itemIndex, 1);
         res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(deletedItem[0]));
+        res.end(JSON.stringify(deletedItem));
+        fs.writeFileSync('items.json', JSON)
       } else {
         res.writeHead(404, { "Content-Type": "text/plain" });
         res.end("Item not found - DeleteById");

@@ -1,13 +1,10 @@
 [
   {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
+    "name": "John",
+    "surname": "Doe",
+    "age": "20",
     "id": 1
+<<<<<<< HEAD
   },
   {
     "names": [
@@ -178,5 +175,7 @@
       }
     ],
     "id": null
+=======
+>>>>>>> d3ce1abb1394c61d3eed10bc27f52d08a725f3d4
   }
 ]
