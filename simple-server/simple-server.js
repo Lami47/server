@@ -4,26 +4,19 @@ const url = require("url");
 const hostname = '127.0.0.1';
 const port = 3000;
 
-let x = fs.readFileSync('items.json');
-let items = JSON.parse(x);
+let x = fs.readFileSync('items.json'); //sets items.json file as x
+let items = JSON.parse(x); // Turns string into an object
 
 //find the highest id
-if (Array.isArray(items)) {
-  let highestId = items.reduce((max, item) =>{
-    return item.id > max ? item.id : max; //if item.id is greater than max, item.id is return and vice versa
-  }, 1);
-  let nextId = highestId + 1; // To generate unique IDs for items starting at 1
-} else {
-  console.error('items is not an array:', items);
-}
+let highestId = items.reduce((max, item) =>{
+  return item.id > max ? item.id : max; //if item.id is greater than max, item.id is return and vice versa
+}, 0);
 
-// let highestId = items.reduce((max, item) =>{
-//   return item.id > max ? item.id : max; //if item.id is greater than max, item.id is return and vice versa
-// }, 1); //initial value is 1
+let nextId = highestId + 1; // To generate unique IDs for items starting at 1
 
 // Create the server
 const server = http.createServer((req, res) => { //
-  const parsedUrl = url.parse(req.url, true); //
+  const parsedUrl = url.parse(req.url, true); // Turns string into an object
  
 // Serve item.json for the root URL
 if (parsedUrl.pathname === "/items" && req.method === "GET") {
@@ -54,10 +47,16 @@ if (parsedUrl.pathname === "/items") {
         body += chunk.toString(); // Convert Buffer to string
       });
       req.on("end", () => {
-        const newItem = JSON.parse(body);
-        newItem.id = nextId++;  // newItem.id =  item.index.max() + 1
-        items.push(newItem);
+        const newItem = JSON.parse(body); // Turns string into an object
+
+        // newItem.id =  item.index.max() + 1
+        newItem.id = nextId++;  //increments id by 1
+        items.push(newItem); // if error go check the containers for []
+
+        //update doc data
         fs.writeFileSync("items.json", JSON.stringify(items, null, 2)); // write to items.json the content from NewItem and 
+
+        //display data that was added as json
         res.writeHead(201, { "Content-Type": "application/json" });
         res.end(JSON.stringify(newItem)); 
       });
@@ -89,8 +88,30 @@ if (parsedUrl.pathname === "/items") {
       req.on("end", () => {
         if (itemIndex !== -1) {
           const updatedItem = JSON.parse(updateBody);
-          items[itemIndex].first_name = updatedItem.first_name;
+          // Requirements for editing name
+          if ( items[itemIndex].name === updatedItem.name || updatedItem.name == null|| updatedItem.name === "" ){
+            items[itemIndex].name
+          }
+          else{
+            items[itemIndex].name = updatedItem.name;
+          }
+          // Requirements for editing surname
+          if ( items[itemIndex].surname === updatedItem.surname || updatedItem.surname == null|| updatedItem.surname === "" ){
+            items[itemIndex].surname
+          }
+          else{
+            items[itemIndex].surname = updatedItem.surname;
+          }
+          // Requirements for editing age
+          if ( items[itemIndex].age === updatedItem.age || updatedItem.age == null|| updatedItem.age === "" ){
+            items[itemIndex].age
+          }
+          else{
+            items[itemIndex].age = updatedItem.age;
+          }
+          // writes to items.json
           fs.writeFileSync("items.json", JSON.stringify(items, null, 2));
+          // displays items[index] or item based on the change/s made
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify(items[itemIndex]));
         } else {
@@ -103,9 +124,19 @@ if (parsedUrl.pathname === "/items") {
       // DELETE an item by ID
       if (itemIndex !== -1) {
         const deletedItem = items.splice(itemIndex, 1);
+        // console.log(itemIndex)
+        // let ids = items.id
+        // // Decrement every ID that appears after the deleted ID
+        // for (let i = indexToDelete; i < ids.length; i++) {
+        //   ids[i]--; // Decrement the ID
+        // }
+        
+        //removes item from file
+        fs.writeFileSync('items.json', JSON.stringify(items));
+
+        //display item deleted
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify(deletedItem));
-        fs.writeFileSync('items.json', JSON)
       } else {
         res.writeHead(404, { "Content-Type": "text/plain" });
         res.end("Item not found - DeleteById");

@@ -3,179 +3,24 @@
     "name": "John",
     "surname": "Doe",
     "age": "20",
-    "id": 1
-<<<<<<< HEAD
+    "id": 6
   },
   {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 2
+    "name": "John",
+    "surname": "Doe",
+    "age": "20",
+    "id": 7
   },
   {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 1
+    "name": "John",
+    "surname": "Doe",
+    "age": "20",
+    "id": 8
   },
   {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 2
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 3
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 1
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 2
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 3
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 4
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 125
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 126
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 127
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 128
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 125
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 126
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": 127
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": null
-  },
-  {
-    "names": [
-      {
-        "first_name": "John",
-        "last_name": "Doe",
-        "age": "20"
-      }
-    ],
-    "id": null
-=======
->>>>>>> d3ce1abb1394c61d3eed10bc27f52d08a725f3d4
+    "name": "John",
+    "surname": "Doe",
+    "age": "20",
+    "id": 9
   }
 ]
