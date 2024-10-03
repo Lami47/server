@@ -9,7 +9,8 @@ let items = JSON.parse(x); // Turns string into an object
 
 //find the highest id
 let highestId = items.reduce((max, item) =>{
-  return item.id > max ? item.id : max; //if item.id is greater than max, item.id is return and vice versa
+  //if item.id is greater than max, item.id is return and vice versa
+  return item.id > max ? item.id : max;
 }, 0);
 
 let nextId = highestId + 1; // To generate unique IDs for items starting at 1
@@ -50,6 +51,18 @@ if (parsedUrl.pathname === "/items") {
         const newItem = JSON.parse(body); // Turns string into an object
 
         // newItem.id =  item.index.max() + 1
+        // if (nextId === items.id(max) + 1 && nextId - 1 != items.length){
+        
+        for (let i = 1; i != items.id && i < 100, i++ ;){
+          console.log(i)
+        }
+        
+        //   // search through the numbers for the missing id and POST/reset the id
+        // }
+        // else {
+        //   newItem.id = nextId++;  //increments id by 1
+        // }
+
         newItem.id = nextId++;  //increments id by 1
         items.push(newItem); // if error go check the containers for []
 

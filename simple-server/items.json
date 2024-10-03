@@ -3,24 +3,19 @@
     "name": "John",
     "surname": "Doe",
     "age": "20",
-    "id": 6
+    "id": 1
+  },
+ 
+  {
+    "name": "John",
+    "surname": "Doe",
+    "age": "20",
+    "id": 3
   },
   {
     "name": "John",
     "surname": "Doe",
     "age": "20",
-    "id": 7
-  },
-  {
-    "name": "John",
-    "surname": "Doe",
-    "age": "20",
-    "id": 8
-  },
-  {
-    "name": "John",
-    "surname": "Doe",
-    "age": "20",
-    "id": 9
+    "id": 4
   }
 ]
