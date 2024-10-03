@@ -4,16 +4,6 @@ const url = require("url");
 const hostname = '127.0.0.1';
 const port = 3000;
 
-<<<<<<< HEAD
-
-let readData = fs.readFileSync('items.json')
-let items = JSON.parse(readData);
-let nextId = 1;
-
-// let numbers = readData;
-// const totalWithID = numbers.filter(obj => obj.id !== undefined).length;
-// let nextId = maxId; // To generate unique IDs for items starting at 1
-=======
 let x = fs.readFileSync('items.json');
 let items = JSON.parse(x);
 
@@ -30,9 +20,6 @@ if (Array.isArray(items)) {
 // let highestId = items.reduce((max, item) =>{
 //   return item.id > max ? item.id : max; //if item.id is greater than max, item.id is return and vice versa
 // }, 1); //initial value is 1
-
-
->>>>>>> d3ce1abb1394c61d3eed10bc27f52d08a725f3d4
 
 // Create the server
 const server = http.createServer((req, res) => { //
