@@ -53,9 +53,9 @@ if (parsedUrl.pathname === "/items") {
         // newItem.id =  item.index.max() + 1
         // if (nextId === items.id(max) + 1 && nextId - 1 != items.length){
         
-        for (let i = 1; i != items.id && i < 100, i++ ;){
-          console.log(i)
-        }
+        // for (let i = 1; i != items.id && i < 100, i++ ;){
+        //   console.log(i)
+        // }
         
         //   // search through the numbers for the missing id and POST/reset the id
         // }
