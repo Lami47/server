@@ -41,10 +41,10 @@ if (parsedUrl.pathname === "/items" && req.method === "GET") {
 }
 });
 
-for (let i = 1; i != items.id && i >= "100", i++;){
-  i++
-  console.log(i)
-}
+// for (let i = 1; i != items.id && i >= "100", i++;){
+//   i++
+//   console.log(i)
+// }
 
 // Start the server
 server.listen(port, hostname, () => {

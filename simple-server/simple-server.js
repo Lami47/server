@@ -50,19 +50,6 @@ if (parsedUrl.pathname === "/items") {
       req.on("end", () => {
         const newItem = JSON.parse(body); // Turns string into an object
 
-        // newItem.id =  item.index.max() + 1
-        // if (nextId === items.id(max) + 1 && nextId - 1 != items.length){
-        
-        // for (let i = 1; i != items.id && i < 100, i++ ;){
-        //   console.log(i)
-        // }
-        
-        //   // search through the numbers for the missing id and POST/reset the id
-        // }
-        // else {
-        //   newItem.id = nextId++;  //increments id by 1
-        // }
-
         newItem.id = nextId++;  //increments id by 1
         items.push(newItem); // if error go check the containers for []
 
@@ -137,12 +124,6 @@ if (parsedUrl.pathname === "/items") {
       // DELETE an item by ID
       if (itemIndex !== -1) {
         const deletedItem = items.splice(itemIndex, 1);
-        // console.log(itemIndex)
-        // let ids = items.id
-        // // Decrement every ID that appears after the deleted ID
-        // for (let i = indexToDelete; i < ids.length; i++) {
-        //   ids[i]--; // Decrement the ID
-        // }
         
         //removes item from file
         fs.writeFileSync('items.json', JSON.stringify(items));

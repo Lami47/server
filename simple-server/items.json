@@ -9,24 +9,6 @@
     "name": "John",
     "surname": "Doe",
     "age": "20",
-    "id": 3
-  },
-  {
-    "name": "John",
-    "surname": "Doe",
-    "age": "20",
-    "id": 4
-  },
-  {
-    "name": "Bil",
-    "surname": "Dude",
-    "age": 200,
-    "id": 5
-  },
-  {
-    "name": "John",
-    "surname": "Doe",
-    "age": "20",
-    "id": 6
+    "id": 2
   }
 ]
